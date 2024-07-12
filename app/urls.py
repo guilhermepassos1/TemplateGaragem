@@ -13,16 +13,17 @@ from core.views import UserViewSet
 from core.views import CategoriaViewSet 
 from core.views import AcessorioViewSet
 from core.views import CorViewSet
+from core.views import MarcaViewSet
 
 router = DefaultRouter()
 router.register(r"categorias", CategoriaViewSet) 
 router.register(r"acessorios", AcessorioViewSet) 
+router.register(r"marcas", MarcaViewSet)
 router.register(r"cores", CorViewSet) 
 router.register(r"users", UserViewSet, basename="users")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # OpenAPI 3
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
         "api/swagger/",
